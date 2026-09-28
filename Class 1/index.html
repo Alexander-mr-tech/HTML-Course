@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button increase Decreacse</title>
+</head>
+<body> 
+  <h1 style="text-align: center;">Button increase Decreacse</h1>
+  <p "text-align: center;" id="demo1">1</p>
+  <Button id="decrease" onclick="handledecrease()">-</Button>
+  <Button  id="increase"  onclick="handleIncrease()">+</Button>
+
+  <script src="script.js"></script>
+ </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+</head>
+
+<body>
+
+  <h1>Products</h1>
+
+  <div class="product">
+    <h2>Mobile</h2>
+    <p>Price: Rs. 50,000</p>
+    <button onclick="addToCart('Mobile', 50000)">
+      Purchase
+    </button>
+  </div>
+
+  <div class="product">
+    <h2>Laptop</h2>
+    <p>Price: Rs. 120,000</p>
+    <button onclick="addToCart('Laptop', 120000)">
+      Purchase
+    </button>
+  </div>
+
+  <div class="product">
+    <h2>Headphones</h2>
+    <p>Price: Rs. 5,000</p>
+    <button onclick="addToCart('Headphones', 5000)">
+      Purchase
+    </button>
+  </div>
+
+
+  <h2>Cart</h2>
+
+  <div id="cart"></div>
+
+  <h2>
+    Total: Rs. <span id="total">0</span>
+  </h2>
+
+
+  <script>
+
+    let cart = [];
+    let total = 0;
+
+
+    function addToCart(productName, price) {
+
+      cart.push({
+        name: productName,
+        price: price
+      });
+
+      total = total + price;
+
+      showCart();
+    }
+
+
+    function showCart() {
+
+      let cartDiv = document.getElementById("cart");
+
+      cartDiv.innerHTML = "";
+
+      cart.forEach(function(product) {
+
+        cartDiv.innerHTML += `
+          <p>
+            ${product.name} - Rs. ${product.price}
+          </p>
+        `;
+
+      });
+
+      document.getElementById("total").innerText = total;
+    }
+
+  </script>
+
+</body>
+</html>
